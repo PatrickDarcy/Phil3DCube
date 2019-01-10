@@ -1,7 +1,6 @@
 ﻿  Game.cpp
-  Main.cpp
-  Generating Code...
-  SFMLOpenGL.vcxproj -> C:\Users\C00226157\Desktop\gameplay-programming-i-lab-08\Debug\SFMLOpenGL.exe
+c:\users\c00226157\desktop\phil3dcube\sfmlopengl\game.cpp(149): warning C4305: '-=': truncation from 'double' to 'float'
+  SFMLOpenGL.vcxproj -> C:\Users\C00226157\Desktop\Phil3DCube\Debug\SFMLOpenGL.exe
   C:\SFML-2.5.0\bin\openal32.dll
   C:\SFML-2.5.0\bin\sfml-audio-2.dll
   C:\SFML-2.5.0\bin\sfml-audio-d-2.dll
