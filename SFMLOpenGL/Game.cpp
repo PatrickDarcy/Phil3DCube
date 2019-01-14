@@ -68,26 +68,6 @@ void Game::run()
 			{
 				isRunning = false;
 			}
-
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-			{
-				moveLeft();
-			}
-
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-			{
-			//	moveRight();
-			}
-
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-			{
-			//	moveUp();
-			}
-
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-			{
-			//	moveDown();
-			}
 		}
 		update();
 		render();
@@ -110,7 +90,99 @@ void Game::update()
 {
 	elapsed = clock.getElapsedTime();
 
-	cout << "Update up" << endl;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
+	{
+		rotationAngleY += 0.00005f;
+
+		if (rotationAngleY > 360.0f)
+		{
+			rotationAngleY -= 360.0f;
+		}
+	}
+	else
+	{
+		rotationAngleY = 0;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::X))
+	{
+		rotationAngleX += 0.00005f;
+
+		if (rotationAngleX > 360.0f)
+		{
+			rotationAngleX -= 360.0f;
+		}
+	}
+	else
+	{
+		rotationAngleX = 0;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
+	{
+		rotationAngleZ += 0.00005f;
+
+		if (rotationAngleZ > 360.0f)
+		{
+			rotationAngleZ -= 360.0f;
+		}
+	}
+	else
+	{
+		rotationAngleZ = 0;
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	{
+		displacementVec.x = -0.005;
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	{
+		displacementVec.x = 0.005;
+	}
+	else
+	{
+		displacementVec.x = 0;
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	{
+		displacementVec.y = 0.005;
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	{
+		displacementVec.y = -0.005;
+	}
+	else
+	{
+		displacementVec.y = 0;
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	{
+		m_scale += 0.000005;
+	}
+
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	{
+		m_scale -= 0.000005;
+	}
+	else
+	{
+		m_scale = 1;
+	}
+
+
+	for (int i = 0; i < 36; i++)
+	{
+		MyVector3 tempVec{ vertices[i * 3], vertices[(i * 3) + 1], vertices[(i * 3) + 2] + 6 };
+		tempVec = MyMatrix3::rotationX(rotationAngleX) * tempVec;
+		tempVec = MyMatrix3::rotationY(rotationAngleY) * tempVec;
+		tempVec = MyMatrix3::rotationZ(rotationAngleZ) * tempVec;
+		tempVec = MyMatrix3::scale(m_scale) * tempVec;
+		tempVec += displacementVec;
+		vertices[i * 3] = tempVec.x;
+		vertices[i * 3 + 1] = tempVec.y;
+		vertices[i * 3 + 2] = tempVec.z - 6;
+	}
 }
 
 void Game::render()
@@ -140,25 +212,5 @@ void Game::render()
 void Game::unload()
 {
 	cout << "Cleaning up" << endl;
-}
-
-void Game::moveLeft()
-{
-	for (int i = 0; i < 36; i++)
-	{
-		vertices[i] -= 0.05;
-	}
-}
-
-void Game::moveRight()
-{
-}
-
-void Game::moveUp()
-{
-}
-
-void Game::moveDown()
-{
 }
 

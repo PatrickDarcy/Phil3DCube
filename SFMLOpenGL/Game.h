@@ -23,13 +23,13 @@ private:
 	void update();
 	void render();
 	void unload();
-	void moveLeft();
-	void moveRight();
-	void moveUp();
-	void moveDown();
 
 	Clock clock;
 	Time elapsed;
 
-	float rotationAngle = 0.0f;
+	float rotationAngleX = 0.0f;
+	float rotationAngleY = 0.0f;
+	float rotationAngleZ = 0.0f;
+	float m_scale = 1.0f;
+	MyVector3 displacementVec = { 0.0, 0.0, 0.0 };
 };

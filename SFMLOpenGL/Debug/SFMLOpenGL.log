@@ -1,5 +1,9 @@
 ﻿  Game.cpp
-c:\users\c00226157\desktop\phil3dcube\sfmlopengl\game.cpp(149): warning C4305: '-=': truncation from 'double' to 'float'
+c:\users\c00226157\desktop\phil3dcube\sfmlopengl\game.cpp(161): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\c00226157\desktop\phil3dcube\sfmlopengl\game.cpp(166): warning C4305: '-=': truncation from 'double' to 'float'
+c:\users\c00226157\desktop\phil3dcube\sfmlopengl\game.cpp(182): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\c00226157\desktop\phil3dcube\sfmlopengl\game.cpp(183): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\c00226157\desktop\phil3dcube\sfmlopengl\game.cpp(184): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   SFMLOpenGL.vcxproj -> C:\Users\C00226157\Desktop\Phil3DCube\Debug\SFMLOpenGL.exe
   C:\SFML-2.5.0\bin\openal32.dll
   C:\SFML-2.5.0\bin\sfml-audio-2.dll
